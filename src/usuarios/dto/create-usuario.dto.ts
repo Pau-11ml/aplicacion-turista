@@ -1,19 +1,21 @@
 import { IsString } from 'class-validator';
 
 export class CreateUsuarioDto {
+  @IsString()
+  nombre!: string;
 
-    @IsString()
-    nombre!: string;
+  @IsString()
+  correo!: string;
 
-    @IsString()
-    correo!: string;
+  @IsString()
+  contraseña!: string;
 
-    @IsString()
-    contraseña!: string;
+  @IsString()
+  tipo!: string;
 
-    @IsString()
-    tipo!: string;
+  @IsString()
+  resenas!: string;
 
-    @IsString()
-    idiomaPreferido!: string;
+  @IsString()
+  idiomaPreferido!: string;
 }

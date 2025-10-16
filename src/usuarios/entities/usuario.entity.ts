@@ -19,6 +19,9 @@ export class Usuario {
   @Column()
   idiomaPreferido!: string;
 
+  @Column()
+  resenas!: string;
+
   iniciarSesion(): void {
     console.log(`${this.nombre} ha iniciado sesión.`);
   }

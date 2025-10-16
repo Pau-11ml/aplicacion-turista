@@ -5,7 +5,7 @@ import {
   ManyToOne,
   CreateDateColumn,
 } from 'typeorm';
-import { Servicio } from '../../servicio/entities/servicio.entity';
+import { Usuario } from '../../usuarios/entities/usuario.entity';
 
 @Entity('resenas')
 export class Resena {
@@ -28,6 +28,6 @@ export class Resena {
   fecha!: Date;
 
   // 🔗 Relación con Servicio
-  @ManyToOne(() => Servicio, (servicio) => servicio.resenas)
-  servicio!: Servicio;
+  @ManyToOne(() => Usuario, (usuario) => usuario.resenas) //cambiar por usuario
+  usuario!: Usuario;
 }
