@@ -17,7 +17,7 @@ import { AtraccionModule } from './atraccion/atraccion.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: 'test',
+      database: 'db/my-database.sqlite',
       entities: [Usuario],
       synchronize: true,
     }),
