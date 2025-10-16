@@ -9,7 +9,7 @@ import { Servicio } from '../../servicio/entities/servicio.entity';
 
 @Entity('resenas')
 export class Resena {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column({ type: 'varchar', length: 200 })

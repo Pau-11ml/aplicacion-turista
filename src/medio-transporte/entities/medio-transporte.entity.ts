@@ -3,8 +3,8 @@ import { Servicio } from '../../servicio/entities/servicio.entity';
 
 @Entity('medios_transporte')
 export class MedioTransporte {
-  @PrimaryGeneratedColumn()
-  id_transporte!: string; 
+  @PrimaryGeneratedColumn('uuid')
+  id_transporte!: string;
 
   @Column({ type: 'varchar', length: 150 })
   nombreEmpresa!: string;
@@ -21,13 +21,13 @@ export class MedioTransporte {
   // Descripción de la ruta o trayecto
 
   @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true })
-  tarifa?: number; 
+  tarifa?: number;
 
   @Column({ type: 'int', nullable: true })
-  distancia_km?: number; 
+  distancia_km?: number;
 
   @Column({ type: 'int', nullable: true })
-  tiempo_estimado_min?: number; 
+  tiempo_estimado_min?: number;
 
   // 🔗 Relación con Servicio
   @OneToMany(() => Servicio, (servicio) => servicio.medioTransporte)

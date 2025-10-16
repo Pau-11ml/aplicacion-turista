@@ -1,14 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 @Entity()
 export class Usuario {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column()
   nombre!: string;
 
   @Column()
-  correo!: string
+  correo!: string;
 
   @Column()
   contraseña!: string;
@@ -18,7 +18,6 @@ export class Usuario {
 
   @Column()
   idiomaPreferido!: string;
-
 
   iniciarSesion(): void {
     console.log(`${this.nombre} ha iniciado sesión.`);
@@ -36,7 +35,6 @@ export class Usuario {
 
 @Entity()
 export class Administrador extends Usuario {
-  
   gestionarUsuarios(): void {
     console.log(`${this.nombre} está gestionando usuarios.`);
   }

@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { LugaresTuristicos } from './entities/lugares-turistico.entity';
+import { LugaresTuristico } from './entities/lugares-turistico.entity';
 import { CreateLugaresTuristicoDto } from './dto/create-lugares-turistico.dto';
 import { UpdateLugaresTuristicoDto } from './dto/update-lugares-turistico.dto';
 

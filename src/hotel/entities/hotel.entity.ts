@@ -1,5 +1,5 @@
 import { Entity, Column } from 'typeorm';
-import { LugaresTuristicos } from '../../lugares-turisticos/entities/lugares-turistico.entity';
+import { LugaresTuristico } from '../../lugares-turisticos/entities/lugares-turistico.entity';
 
 @Entity({ name: 'hoteles' })
 export class Hotel extends LugaresTuristicos {

@@ -10,9 +10,9 @@ import { Resena } from '../../resena/entities/resena.entity';
 import { MedioTransporte } from '../../medio-transporte/entities/medio-transporte.entity';
 
 @Entity('servicios')
-export class Servicio {
-  @PrimaryGeneratedColumn()
-  id!: string; // 🔹 Cambiado a string (por convención y compatibilidad con TypeORM)
+export class CreateServicioDto {
+  @PrimaryGeneratedColumn('uuid')
+  id!: string;
 
   @Column({ type: 'varchar', length: 200 })
   descripcion!: string;

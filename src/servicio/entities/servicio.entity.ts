@@ -11,7 +11,7 @@ import { MedioTransporte } from '../../medio-transporte/entities/medio-transport
 
 @Entity('servicios')
 export class Servicio {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id!: string;
 
   @Column({ type: 'varchar', length: 200 })
