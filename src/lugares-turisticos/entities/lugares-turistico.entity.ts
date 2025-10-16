@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity({ name: 'lugares_turisticos' })
-export class LugaresTuristicos {
+export class LugaresTuristico {
   @PrimaryGeneratedColumn()
   id!: string;
 
