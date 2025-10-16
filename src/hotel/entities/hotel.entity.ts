@@ -2,7 +2,7 @@ import { Entity, Column } from 'typeorm';
 import { LugaresTuristico } from '../../lugares-turisticos/entities/lugares-turistico.entity';
 
 @Entity({ name: 'hoteles' })
-export class Hotel extends LugaresTuristicos {
+export class Hotel extends LugaresTuristico {
   @Column()
   clasificacion!: string;
 

@@ -8,8 +8,8 @@ import { UpdateLugaresTuristicoDto } from './dto/update-lugares-turistico.dto';
 @Injectable()
 export class LugaresTuristicosService {
   constructor(
-    @InjectRepository(LugaresTuristicos)
-    private readonly lugaresRepo: Repository<LugaresTuristicos>,
+    @InjectRepository(LugaresTuristico)
+    private readonly lugaresRepo: Repository<LugaresTuristico>,
   ) {}
 
   async create(createLugaresTuristicoDto: CreateLugaresTuristicoDto) {

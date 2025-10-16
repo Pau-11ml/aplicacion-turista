@@ -5,7 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { LugaresTuristico } from './entities/lugares-turistico.entity';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([LugaresTuristicos])],
+  imports: [TypeOrmModule.forFeature([LugaresTuristico])],
   controllers: [LugaresTuristicosController],
   providers: [LugaresTuristicosService],
   exports: [TypeOrmModule],

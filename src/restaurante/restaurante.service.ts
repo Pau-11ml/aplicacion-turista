@@ -1,26 +1,45 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Restaurante } from './entities/restaurante.entity';
 import { CreateRestauranteDto } from './dto/create-restaurante.dto';
 import { UpdateRestauranteDto } from './dto/update-restaurante.dto';
 
 @Injectable()
 export class RestauranteService {
-  create(createRestauranteDto: CreateRestauranteDto) {
-    return 'This action adds a new restaurante';
+  constructor(
+    @InjectRepository(Restaurante)
+    private readonly restauranteRepo: Repository<Restaurante>,
+  ) {}
+
+  async create(createRestauranteDto: CreateRestauranteDto) {
+    const restaurante = this.restauranteRepo.create(createRestauranteDto);
+    return await this.restauranteRepo.save(restaurante);
   }
 
-  findAll() {
-    return `This action returns all restaurante`;
+  async findAll() {
+    return await this.restauranteRepo.find();
   }
 
-  findOne(string) {
-    return `This action returns a #${id} restaurante`;
+  async findOne(id: string) {
+    const restaurante = await this.restauranteRepo.findOneBy({ id });
+    if (!restaurante) {
+      throw new NotFoundException('No se encontró el restaurante.');
+    }
+    return restaurante;
   }
 
-  update(string, updateRestauranteDto: UpdateRestauranteDto) {
-    return `This action updates a #${id} restaurante`;
+  async update(id: string, updateRestauranteDto: UpdateRestauranteDto) {
+    const restaurante = await this.restauranteRepo.findOneBy({ id });
+    if (!restaurante) {
+      throw new NotFoundException('No se encontró el restaurante.');
+    }
+    await this.restauranteRepo.update(id, updateRestauranteDto);
+    return await this.restauranteRepo.findOneBy({ id });
   }
 
-  remove(string) {
-    return `This action removes a #${id} restaurante`;
+  async remove(id: string) {
+    const restaurante = await this.findOne(id);
+    await this.restauranteRepo.remove(restaurante);
   }
 }
